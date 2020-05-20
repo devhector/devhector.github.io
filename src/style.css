@@ -55,13 +55,14 @@
     font-family: 'Nunito Sans', sans-serif;
     color: #ffd000;
 }
-
+/*
 .med-bar{
   float: none;
-  /*background-color: coral;*/
+  background-color: coral;
   width: 3%;
   height: 100%;
 }
+*/
 
 .right-content{
     float: right;
