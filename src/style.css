@@ -6,6 +6,13 @@
     box-sizing: border-box;
 }
 
+body{
+  background: url(http://api.thumbr.it/whitenoise-361x370.png?background=030303ff&noise=626262&density=24&opacity=15);
+  height: 100%;
+  overflow-x: hidden;
+  overflow-y: hidden;
+}
+
 .content{
     position: absolute;
     top: 10%;
@@ -18,7 +25,6 @@
 
 .left-content{
     float: left;
-    /*background-color: blanchedalmond;*/
     width: 40%;
     height: 100%;
     position: absolute;
@@ -139,4 +145,31 @@
     background:#ffd000;
     padding:20px 20px;
     color:#1b1b1b;
+  }
+
+  .resume{
+    margin: 22% 5%;
+    color: #ffd000;
+    font-size: 20px;
+    font-family: 'Nunito Sans', sans-serif;
+    line-height: 45px;
+  }
+
+  footer{
+    font-family: 'Nunito Sans', sans-serif;
+    font-size: 10px;
+    margin-top: 50%;
+    margin-left: 50%;
+    color: whitesmoke;
+    text-align:center;
+    justify-content: center;
+    position: absolute;
+  }
+
+  footer .fa-heart{
+    color: tomato;
+  }
+
+  footer .fa-mug-hot{
+    color: #ffd000;
   }
