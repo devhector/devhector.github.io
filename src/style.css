@@ -14,18 +14,18 @@
     right: 5%;
     background-color: rgb(24, 24, 24);
     box-shadow: rgb(92, 92, 92) 5px 5px;
-    border: 2px rgb(80, 80, 80);
 }
 
 .left-content{
     float: left;
     /*background-color: blanchedalmond;*/
-    width: 35%;
+    width: 40%;
     height: 100%;
     position: absolute;
     align-content: center;
     justify-content: center;
     text-align: center;
+    border: solid 6px #ffd000;
 }
 
 .perfil{
@@ -44,8 +44,8 @@
 
 .me:hover {
   color: #ffd000;
-  box-shadow: 0 0 5px #ffd000;
-  text-shadow: 0 0 5px #ffd000;
+  box-shadow: 0 0 15px #ffd000;
+  text-shadow: 0 0 15px #ffd000;
 }
 
 .name{
@@ -55,20 +55,13 @@
     font-family: 'Nunito Sans', sans-serif;
     color: #ffd000;
 }
-/*
-.med-bar{
-  float: none;
-  background-color: coral;
-  width: 3%;
-  height: 100%;
-}
-*/
+
 
 .right-content{
     float: right;
-    background-color: burlywood;
     width: 60%;
     height: 100%;
+    border: solid 3px #ffd000;
 }
 
 #s-perfil {
@@ -121,4 +114,29 @@
     color: #ffd000;
     box-shadow: 0 0 5px #ffd000;
     text-shadow: 0 0 5px #ffd000;
+  }
+
+  nav{
+    float: right;
+    padding: 3% 15%;
+    overflow: hidden;
+    font-family: 'Nunito Sans', sans-serif;
+  }
+
+  .btn{
+    color:#666;
+    background:rgba(3, 3, 3, 0.5);
+    padding:10px 20px;
+    font-size:12px;
+    text-decoration:none;
+    letter-spacing:2px;
+    text-transform:uppercase;
+  }
+  
+  .btn:hover{
+    border:none;
+    background:rgba(3, 3, 3, 0.4);
+    background:#ffd000;
+    padding:20px 20px;
+    color:#1b1b1b;
   }
