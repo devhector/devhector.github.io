@@ -1,5 +1,21 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,wght@1,600&display=swap');
 
+@media only screen and (max-width: 850px) {
+
+  *{
+      padding: 0;
+      margin: 0;
+      box-sizing: border-box;
+    }
+  
+  body{
+    background-color: teal;
+    height: 100%;
+    width: 100%;
+  }
+  
+  }
+
 *{
     padding: 0;
     margin: 0;
@@ -31,7 +47,10 @@ body{
     align-content: center;
     justify-content: center;
     text-align: center;
-    border: solid 6px #ffd000;
+    border-top: solid 3px #ffd000;
+    border-bottom: solid 3px #ffd000;
+    border-left: solid 3px #ffd000;
+    border-right: solid 6px #ffd000;
 }
 
 .perfil{
@@ -159,7 +178,7 @@ body{
     font-family: 'Nunito Sans', sans-serif;
     font-size: 10px;
     bottom: 2px;
-    left: 50%;
+    left: 50vw;
     color: whitesmoke;
     text-align:center;
     justify-content: center;
@@ -173,3 +192,4 @@ body{
   footer .fa-mug-hot{
     color: #ffd000;
   }
+
