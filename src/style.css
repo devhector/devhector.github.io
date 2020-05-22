@@ -86,6 +86,9 @@ body{
     float: right;
     width: 60%;
     height: 100%;
+    position: relative;
+    align-content: center;
+    justify-content: center;
     border: solid 3px #ffd000;
 }
 
@@ -162,7 +165,6 @@ body{
     border:none;
     background:rgba(3, 3, 3, 0.4);
     background:#ffd000;
-    padding:20px 20px;
     color:#1b1b1b;
   }
 
@@ -172,6 +174,10 @@ body{
     font-size: 20px;
     font-family: 'Nunito Sans', sans-serif;
     line-height: 45px;
+  }
+
+  .resume ul{
+    padding: 50px;
   }
 
   footer{
