@@ -27,7 +27,7 @@
       float: left;
       width: 40%;
       height: 100%;
-      position: absolute;
+      position: relative;
       align-content: center;
       justify-content: center;
       text-align: center;
@@ -170,9 +170,9 @@
       bottom: 2px;
       left: 50vw;
       color: whitesmoke;
-      text-align:center;
+      text-align: center;
       justify-content: center;
-      position: fixed;
+      position: relative;
     }
   
     footer .fa-heart{
@@ -243,7 +243,7 @@
       .right-content{
         width: 100%;
         height: 100%;
-        position: static;
+        position: relative;
         align-content: center;
         justify-content: center;
         text-align: center;
@@ -251,10 +251,9 @@
       }
 
         nav{
-          float: left;
-          padding: 3%;
-          overflow: hidden;
           font-family: 'Nunito Sans', sans-serif;
+          font-size: 30%;
+          right: auto;
         }
 
       
@@ -265,4 +264,11 @@
         footer{
           display: none;
         }
+}
+
+@media only screen and (max-width: 450px){
+  nav{
+    font-size: 10%;
+    padding: 20px 0px;
+  }
 }
