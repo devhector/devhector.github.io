@@ -9,6 +9,14 @@
 
 
     <url>
+        <loc>http://example.com/2021/08/27/GNL-get-next-line-42/</loc>
+        <lastmod>2021-08-27T17:38:59.281Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>http://example.com/2021/05/03/Conciliando-Faculdade-com-os-side-projects/</loc>
         <lastmod>2021-05-23T21:36:58.270Z</lastmod>
         <changefreq>weekly</changefreq>
