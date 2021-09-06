@@ -158,8 +158,9 @@
 <h2 id="O-que-sei-ate-agora"><a href="#O-que-sei-ate-agora" class="headerlink" title="O que sei até agora:"></a>O que sei até agora:</h2><h4 id="File-Descriptor-FD"><a href="#File-Descriptor-FD" class="headerlink" title="- File Descriptor (FD)"></a>- File Descriptor (FD)</h4><p>O file descriptor segundo o <a target="_blank" rel="noopener" href="https://pt.wikipedia.org/wiki/Descritor_de_arquivo">wikipedia</a> é um indicador abstrato para indicar um arquivo.</p>
 <p>No GNL iremos usar a função <code>read()</code> da biblioteca <code>&lt;unistd.h&gt;</code>. </p>
 <h5 id="read"><a href="#read" class="headerlink" title="read()"></a>read()</h5><p> protótipo:</p>
-<pre><code class="c">ssize_t    read(int fd, void *buf, size_t count);
-</code></pre>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">ssize_t</span>	<span class="title">read</span><span class="params">(<span class="keyword">int</span> fd, <span class="keyword">void</span> *buf, <span class="keyword">size_t</span> count)</span></span>;</span><br></pre></td></tr></table></figure>
+
+
 <h5 id="Anotacoes-gerais"><a href="#Anotacoes-gerais" class="headerlink" title="Anotações gerais."></a>Anotações gerais.</h5><p>[22/08/21]</p>
 <p>O valor de <code>fd</code> é recebido na <code>main.c</code> através do função <code>open()</code>, seria algo do tipo: </p>
 <p><code>fd = open(&quot;arquivo&quot;, O_RDONLY) </code> e o valor recebido de <code>fd</code> seria passado para o <code>get_next_line</code></p>
@@ -177,15 +178,7 @@
 <hr>
 <details>
     <summary>Mostrar código</summary>
-    ```c
-while (!ft_strchr(save, '\n'))
-    {
-        r = read(fd, buffer, BUFFER_SIZE);
-        aux = save;
-        save = ft_strjoin(save, buffer);
-        free(aux);
-    }
-    ```
+    <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">while</span> (!ft_strchr(save, <span class="string">&#x27;\n&#x27;</span>))</span><br><span class="line">    &#123;</span><br><span class="line">        r = read(fd, buffer, BUFFER_SIZE);</span><br><span class="line">        aux = save;</span><br><span class="line">        save = ft_strjoin(save, buffer);</span><br><span class="line">        <span class="built_in">free</span>(aux);</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
 </details>
 
 <p>O protótipo funcionou, a ideia que eu tive é ir guardando o buffer até achar o <code>&#39;\n&#39;</code>assim que ele acha o <code>&#39;\n&#39;</code> na string static que eu guardo tudo que o buffer recebe, o while termina e eu retorno até o <code>&#39;\n&#39;</code> e  em seguida guardo o restante na própria string static.</p>
@@ -195,90 +188,20 @@ while (!ft_strchr(save, '\n'))
 <h5 id="Linha-geral"><a href="#Linha-geral" class="headerlink" title="Linha geral:"></a>Linha geral:</h5><p>A função <code>read_file</code> é autodescritiva, vou receber como parâmetro o fd do arquivo e a variavel estática. Nela eu crio um buffer com o tamnaho do <code>BUFFER_SIZE</code> e uso a função <code>read()</code> pra ler o arquivo até encontrar o final dele - que seria retornado 0 - ou até encontrar uma linha (<code>\n</code>) , caso ocorra algum erro, o laço de repetição é parado, libero a variavel buffer que tinha mallocado e retorno NULL, caso contrário, uso a função <code>ft_strjoin()</code> para juntar o conteúdo de backup com o buffer.</p>
 <details>
     <summary>Mostrar código</summary>
-    ```c
-    static char    *read_file(int fd, char *backup)
-        {
-            char    *buffer;
-            int        read_bytes;
-            buffer = malloc(sizeof(char) * (BUFFER_SIZE + 1));
-            if (!buffer)
-                return (NULL);
-            read_bytes = 1;
-            while (read_bytes > 0 && !ft_strchr(backup, '\n'))
-            {
-                read_bytes = read(fd, buffer, BUFFER_SIZE);
-                if (read_bytes < 0)
-                    break ;
-                buffer[read_bytes] = '\0';
-                backup = ft_strjoin(backup, buffer);
-            }
-            free(buffer);
-            if (read_bytes < 0)
-                return (NULL);
-            else
-                return (backup);
-        }
-    ```
+    <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">char</span>	*<span class="title">read_file</span><span class="params">(<span class="keyword">int</span> fd, <span class="keyword">char</span> *backup)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">char</span>	*buffer;</span><br><span class="line">        <span class="keyword">int</span>		read_bytes;</span><br><span class="line">        buffer = <span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(<span class="keyword">char</span>) * (BUFFER_SIZE + <span class="number">1</span>));</span><br><span class="line">        <span class="keyword">if</span> (!buffer)</span><br><span class="line">            <span class="keyword">return</span> (<span class="literal">NULL</span>);</span><br><span class="line">        read_bytes = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">while</span> (read_bytes &gt; <span class="number">0</span> &amp;&amp; !ft_strchr(backup, <span class="string">&#x27;\n&#x27;</span>))</span><br><span class="line">        &#123;</span><br><span class="line">            read_bytes = read(fd, buffer, BUFFER_SIZE);</span><br><span class="line">            <span class="keyword">if</span> (read_bytes &lt; <span class="number">0</span>)</span><br><span class="line">                <span class="keyword">break</span> ;</span><br><span class="line">            buffer[read_bytes] = <span class="string">&#x27;\0&#x27;</span>;</span><br><span class="line">            backup = ft_strjoin(backup, buffer);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">free</span>(buffer);</span><br><span class="line">        <span class="keyword">if</span> (read_bytes &lt; <span class="number">0</span>)</span><br><span class="line">            <span class="keyword">return</span> (<span class="literal">NULL</span>);</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            <span class="keyword">return</span> (backup);</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
 </details>
 
 <p>A função <code>get_line()</code> faz o que o nome já diz, ela pega a linha. Como parâmetro ainda vamos usar o backup, faço uma verificação se a backup não está com o primeiro caracter como null byte (<code>&#39;\0&#39;</code>), percorro ela inteira até achar uma (<code>&#39;\n&#39;</code>) ou o final dela, crio com o malloc uma string com o tamanho que li + 2 espaços, pra caso haja um <code>\n</code> , eu coloque ele e logo em seguida o (<code>\0</code>)  e retorno essa linha.</p>
 <details>
     <summary>Mostrar código</summary>
-    ```c
-    static char    *get_line(char    *backup)
-    {
-        char    *line;
-        size_t    size;
-
-<pre><code>    if (!*backup)
-        return (NULL);
-    size = 0;
-    while (backup[size] &amp;&amp; backup[size] != &#39;\n&#39;)
-        size++;
-    line = (char *)malloc(sizeof(char) * (size + 2));
-    if (!line)
-        return (NULL);
-    ft_strlcpy(line, backup, size + 1);
-    if (backup[size] == &#39;\n&#39;)
-        line[size++] = &#39;\n&#39;;
-    line[size] = &#39;\0&#39;;
-    return (line);
-&#125;
-</code></pre>
-<pre><code>&lt;/details&gt;
+    <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">   <span class="function"><span class="keyword">static</span> <span class="keyword">char</span>	*<span class="title">get_line</span><span class="params">(<span class="keyword">char</span>	*backup)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">char</span>	*line;</span><br><span class="line">    <span class="keyword">size_t</span>	size;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (!*backup)</span><br><span class="line">        <span class="keyword">return</span> (<span class="literal">NULL</span>);</span><br><span class="line">    size = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span> (backup[size] &amp;&amp; backup[size] != <span class="string">&#x27;\n&#x27;</span>)</span><br><span class="line">        size++;</span><br><span class="line">    line = (<span class="keyword">char</span> *)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(<span class="keyword">char</span>) * (size + <span class="number">2</span>));</span><br><span class="line">    <span class="keyword">if</span> (!line)</span><br><span class="line">        <span class="keyword">return</span> (<span class="literal">NULL</span>);</span><br><span class="line">    ft_strlcpy(line, backup, size + <span class="number">1</span>);</span><br><span class="line">    <span class="keyword">if</span> (backup[size] == <span class="string">&#x27;\n&#x27;</span>)</span><br><span class="line">        line[size++] = <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line">    line[size] = <span class="string">&#x27;\0&#x27;</span>;</span><br><span class="line">    <span class="keyword">return</span> (line);</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+</details>
 
 
-A última função é a `remove_read_line()` que remove a linha lida. Ela recebe como parâmetro a `static` , nela eu procuro até a quebra de linha `\n` ou até chegar no final, se chega no final, dou um free na variável e retorno `NULL` , senão, eu malloco uma nova variavel com o (tamanho total de backup, menos o tamanho da linha), copio o restante de backup pra uma nova variável e dou free nela.
-
-&lt;details&gt;
- &lt;summary&gt;Mostrar código&lt;/summary&gt;
-```c
- static char    *remove_read_line(char *backup)
-&#123;
- int        i;
- int        j;
- char    *new_backup;
-
- i = 0;
- while (backup[i] &amp;&amp; backup[i] != &#39;\n&#39;)
-     i++;
- if (!backup[i])
- &#123;
-     free(backup);
-     return (NULL);
- &#125;
- new_backup = (char *)malloc(sizeof(char) * (ft_strlen(backup) - i + 1));
- if (!new_backup)
-     return (NULL);
- i++;
- j = 0;
- while (backup[i])
-     new_backup[j++] = backup[i++];
- new_backup[j] = &#39;\0&#39;;
- free(backup);
- return (new_backup);
-&#125;
-</code></pre>
+<p>A última função é a <code>remove_read_line()</code> que remove a linha lida. Ela recebe como parâmetro a <code>static</code> , nela eu procuro até a quebra de linha <code>\n</code> ou até chegar no final, se chega no final, dou um free na variável e retorno <code>NULL</code> , senão, eu malloco uma nova variavel com o (tamanho total de backup, menos o tamanho da linha), copio o restante de backup pra uma nova variável e dou free nela.</p>
+<details>
+    <summary>Mostrar código</summary>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">    <span class="function"><span class="keyword">static</span> <span class="keyword">char</span>	*<span class="title">remove_read_line</span><span class="params">(<span class="keyword">char</span> *backup)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span>		i;</span><br><span class="line">    <span class="keyword">int</span>		j;</span><br><span class="line">    <span class="keyword">char</span>	*new_backup;</span><br><span class="line"></span><br><span class="line">    i = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span> (backup[i] &amp;&amp; backup[i] != <span class="string">&#x27;\n&#x27;</span>)</span><br><span class="line">        i++;</span><br><span class="line">    <span class="keyword">if</span> (!backup[i])</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">free</span>(backup);</span><br><span class="line">        <span class="keyword">return</span> (<span class="literal">NULL</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    new_backup = (<span class="keyword">char</span> *)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(<span class="keyword">char</span>) * (ft_strlen(backup) - i + <span class="number">1</span>));</span><br><span class="line">    <span class="keyword">if</span> (!new_backup)</span><br><span class="line">        <span class="keyword">return</span> (<span class="literal">NULL</span>);</span><br><span class="line">    i++;</span><br><span class="line">    j = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span> (backup[i])</span><br><span class="line">        new_backup[j++] = backup[i++];</span><br><span class="line">    new_backup[j] = <span class="string">&#x27;\0&#x27;</span>;</span><br><span class="line">    <span class="built_in">free</span>(backup);</span><br><span class="line">    <span class="keyword">return</span> (new_backup);</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 </details>
 
 
