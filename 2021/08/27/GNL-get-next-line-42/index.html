@@ -14,7 +14,7 @@
 <meta property="og:description" content="DescriçãoO get_next_line é um programa que retornar uma linha do arquivo lido. O que sei até agora:- File Descriptor (FD)O file descriptor segundo o wikipedia é um indicador abstrato para indicar um a">
 <meta property="og:locale" content="pt_BR">
 <meta property="article:published_time" content="2021-08-27T17:38:59.000Z">
-<meta property="article:modified_time" content="2021-09-06T19:33:41.270Z">
+<meta property="article:modified_time" content="2021-09-06T20:46:03.646Z">
 <meta property="article:author" content="Hector Fernandes">
 <meta property="article:tag" content="C">
 <meta property="article:tag" content="c">
@@ -134,7 +134,7 @@
       
         <time datetime="2021-08-27T17:38:59.000Z" itemprop="datePublished">sex, 27 ago 2021</time>
         
-        (Updated: <time datetime="2021-09-06T19:33:41.270Z" itemprop="dateModified">seg, 06 set 2021</time>)
+        (Updated: <time datetime="2021-09-06T20:46:03.646Z" itemprop="dateModified">seg, 06 set 2021</time>)
         
       
     </div>
@@ -158,9 +158,8 @@
 <h2 id="O-que-sei-ate-agora"><a href="#O-que-sei-ate-agora" class="headerlink" title="O que sei até agora:"></a>O que sei até agora:</h2><h4 id="File-Descriptor-FD"><a href="#File-Descriptor-FD" class="headerlink" title="- File Descriptor (FD)"></a>- File Descriptor (FD)</h4><p>O file descriptor segundo o <a target="_blank" rel="noopener" href="https://pt.wikipedia.org/wiki/Descritor_de_arquivo">wikipedia</a> é um indicador abstrato para indicar um arquivo.</p>
 <p>No GNL iremos usar a função <code>read()</code> da biblioteca <code>&lt;unistd.h&gt;</code>. </p>
 <h5 id="read"><a href="#read" class="headerlink" title="read()"></a>read()</h5><p> protótipo:</p>
-<pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token class-name">ssize_t</span>	<span class="token function">read</span><span class="token punctuation">(</span><span class="token keyword">int</span> fd<span class="token punctuation">,</span> <span class="token keyword">void</span> <span class="token operator">*</span>buf<span class="token punctuation">,</span> <span class="token class-name">size_t</span> count<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-
+<pre><code class="c">ssize_t    read(int fd, void *buf, size_t count);
+</code></pre>
 <h5 id="Anotacoes-gerais"><a href="#Anotacoes-gerais" class="headerlink" title="Anotações gerais."></a>Anotações gerais.</h5><p>[22/08/21]</p>
 <p>O valor de <code>fd</code> é recebido na <code>main.c</code> através do função <code>open()</code>, seria algo do tipo: </p>
 <p><code>fd = open(&quot;arquivo&quot;, O_RDONLY) </code> e o valor recebido de <code>fd</code> seria passado para o <code>get_next_line</code></p>
@@ -178,13 +177,15 @@
 <hr>
 <details>
     <summary>Mostrar código</summary>
-    <pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token keyword">while</span> <span class="token punctuation">(</span><span class="token operator">!</span><span class="token function">ft_strchr</span><span class="token punctuation">(</span>save<span class="token punctuation">,</span> <span class="token string">'\n'</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-  <span class="token punctuation">&#123;</span>
-    r <span class="token operator">=</span> <span class="token function">read</span><span class="token punctuation">(</span>fd<span class="token punctuation">,</span> buffer<span class="token punctuation">,</span> BUFFER_SIZE<span class="token punctuation">)</span><span class="token punctuation">;</span>
-    aux <span class="token operator">=</span> save<span class="token punctuation">;</span>
-    save <span class="token operator">=</span> <span class="token function">ft_strjoin</span><span class="token punctuation">(</span>save<span class="token punctuation">,</span> buffer<span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token function">free</span><span class="token punctuation">(</span>aux<span class="token punctuation">)</span><span class="token punctuation">;</span>
-  <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+    ```c
+while (!ft_strchr(save, '\n'))
+    {
+        r = read(fd, buffer, BUFFER_SIZE);
+        aux = save;
+        save = ft_strjoin(save, buffer);
+        free(aux);
+    }
+    ```
 </details>
 
 <p>O protótipo funcionou, a ideia que eu tive é ir guardando o buffer até achar o <code>&#39;\n&#39;</code>assim que ele acha o <code>&#39;\n&#39;</code> na string static que eu guardo tudo que o buffer recebe, o while termina e eu retorno até o <code>&#39;\n&#39;</code> e  em seguida guardo o restante na própria string static.</p>
@@ -194,53 +195,90 @@
 <h5 id="Linha-geral"><a href="#Linha-geral" class="headerlink" title="Linha geral:"></a>Linha geral:</h5><p>A função <code>read_file</code> é autodescritiva, vou receber como parâmetro o fd do arquivo e a variavel estática. Nela eu crio um buffer com o tamnaho do <code>BUFFER_SIZE</code> e uso a função <code>read()</code> pra ler o arquivo até encontrar o final dele - que seria retornado 0 - ou até encontrar uma linha (<code>\n</code>) , caso ocorra algum erro, o laço de repetição é parado, libero a variavel buffer que tinha mallocado e retorno NULL, caso contrário, uso a função <code>ft_strjoin()</code> para juntar o conteúdo de backup com o buffer.</p>
 <details>
     <summary>Mostrar código</summary>
-    <pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token keyword">static</span> <span class="token keyword">char</span>	<span class="token operator">*</span><span class="token function">read_file</span><span class="token punctuation">(</span><span class="token keyword">int</span> fd<span class="token punctuation">,</span> <span class="token keyword">char</span> <span class="token operator">*</span>backup<span class="token punctuation">)</span>
-    <span class="token punctuation">&#123;</span>
-        <span class="token keyword">char</span>	<span class="token operator">*</span>buffer<span class="token punctuation">;</span>
-        <span class="token keyword">int</span>		read_bytes<span class="token punctuation">;</span>
-        buffer <span class="token operator">=</span> <span class="token function">malloc</span><span class="token punctuation">(</span><span class="token keyword">sizeof</span><span class="token punctuation">(</span><span class="token keyword">char</span><span class="token punctuation">)</span> <span class="token operator">*</span> <span class="token punctuation">(</span>BUFFER_SIZE <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>buffer<span class="token punctuation">)</span>
-            <span class="token keyword">return</span> <span class="token punctuation">(</span><span class="token constant">NULL</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        read_bytes <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
-        <span class="token keyword">while</span> <span class="token punctuation">(</span>read_bytes <span class="token operator">></span> <span class="token number">0</span> <span class="token operator">&amp;&amp;</span> <span class="token operator">!</span><span class="token function">ft_strchr</span><span class="token punctuation">(</span>backup<span class="token punctuation">,</span> <span class="token string">'\n'</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-        <span class="token punctuation">&#123;</span>
-            read_bytes <span class="token operator">=</span> <span class="token function">read</span><span class="token punctuation">(</span>fd<span class="token punctuation">,</span> buffer<span class="token punctuation">,</span> BUFFER_SIZE<span class="token punctuation">)</span><span class="token punctuation">;</span>
-            <span class="token keyword">if</span> <span class="token punctuation">(</span>read_bytes <span class="token operator">&lt;</span> <span class="token number">0</span><span class="token punctuation">)</span>
-                <span class="token keyword">break</span> <span class="token punctuation">;</span>
-            buffer<span class="token punctuation">[</span>read_bytes<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token string">'\0'</span><span class="token punctuation">;</span>
-            backup <span class="token operator">=</span> <span class="token function">ft_strjoin</span><span class="token punctuation">(</span>backup<span class="token punctuation">,</span> buffer<span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token punctuation">&#125;</span>
-        <span class="token function">free</span><span class="token punctuation">(</span>buffer<span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token keyword">if</span> <span class="token punctuation">(</span>read_bytes <span class="token operator">&lt;</span> <span class="token number">0</span><span class="token punctuation">)</span>
-            <span class="token keyword">return</span> <span class="token punctuation">(</span><span class="token constant">NULL</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token keyword">else</span>
-            <span class="token keyword">return</span> <span class="token punctuation">(</span>backup<span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+    ```c
+    static char    *read_file(int fd, char *backup)
+        {
+            char    *buffer;
+            int        read_bytes;
+            buffer = malloc(sizeof(char) * (BUFFER_SIZE + 1));
+            if (!buffer)
+                return (NULL);
+            read_bytes = 1;
+            while (read_bytes > 0 && !ft_strchr(backup, '\n'))
+            {
+                read_bytes = read(fd, buffer, BUFFER_SIZE);
+                if (read_bytes < 0)
+                    break ;
+                buffer[read_bytes] = '\0';
+                backup = ft_strjoin(backup, buffer);
+            }
+            free(buffer);
+            if (read_bytes < 0)
+                return (NULL);
+            else
+                return (backup);
+        }
+    ```
 </details>
 
 <p>A função <code>get_line()</code> faz o que o nome já diz, ela pega a linha. Como parâmetro ainda vamos usar o backup, faço uma verificação se a backup não está com o primeiro caracter como null byte (<code>&#39;\0&#39;</code>), percorro ela inteira até achar uma (<code>&#39;\n&#39;</code>) ou o final dela, crio com o malloc uma string com o tamanho que li + 2 espaços, pra caso haja um <code>\n</code> , eu coloque ele e logo em seguida o (<code>\0</code>)  e retorno essa linha.</p>
 <details>
     <summary>Mostrar código</summary>
-    <pre class="line-numbers language-c" data-language="c"><code class="language-c">   <span class="token keyword">static</span> <span class="token keyword">char</span>	<span class="token operator">*</span><span class="token function">get_line</span><span class="token punctuation">(</span><span class="token keyword">char</span>	<span class="token operator">*</span>backup<span class="token punctuation">)</span>
-<span class="token punctuation">&#123;</span>
-  <span class="token keyword">char</span>	<span class="token operator">*</span>line<span class="token punctuation">;</span>
-  <span class="token class-name">size_t</span>	size<span class="token punctuation">;</span>
+    ```c
+    static char    *get_line(char    *backup)
+    {
+        char    *line;
+        size_t    size;
 
-  <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span><span class="token operator">*</span>backup<span class="token punctuation">)</span>
-    <span class="token keyword">return</span> <span class="token punctuation">(</span><span class="token constant">NULL</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-  size <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
-  <span class="token keyword">while</span> <span class="token punctuation">(</span>backup<span class="token punctuation">[</span>size<span class="token punctuation">]</span> <span class="token operator">&amp;&amp;</span> backup<span class="token punctuation">[</span>size<span class="token punctuation">]</span> <span class="token operator">!=</span> <span class="token string">'\n'</span><span class="token punctuation">)</span>
-    size<span class="token operator">++</span><span class="token punctuation">;</span>
-  line <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token keyword">char</span> <span class="token operator">*</span><span class="token punctuation">)</span><span class="token function">malloc</span><span class="token punctuation">(</span><span class="token keyword">sizeof</span><span class="token punctuation">(</span><span class="token keyword">char</span><span class="token punctuation">)</span> <span class="token operator">*</span> <span class="token punctuation">(</span>size <span class="token operator">+</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-  <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>line<span class="token punctuation">)</span>
-    <span class="token keyword">return</span> <span class="token punctuation">(</span><span class="token constant">NULL</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-  <span class="token function">ft_strlcpy</span><span class="token punctuation">(</span>line<span class="token punctuation">,</span> backup<span class="token punctuation">,</span> size <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-  <span class="token keyword">if</span> <span class="token punctuation">(</span>backup<span class="token punctuation">[</span>size<span class="token punctuation">]</span> <span class="token operator">==</span> <span class="token string">'\n'</span><span class="token punctuation">)</span>
-    line<span class="token punctuation">[</span>size<span class="token operator">++</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token string">'\n'</span><span class="token punctuation">;</span>
-  line<span class="token punctuation">[</span>size<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token string">'\0'</span><span class="token punctuation">;</span>
-  <span class="token keyword">return</span> <span class="token punctuation">(</span>line<span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">&#125;</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre><code>    if (!*backup)
+        return (NULL);
+    size = 0;
+    while (backup[size] &amp;&amp; backup[size] != &#39;\n&#39;)
+        size++;
+    line = (char *)malloc(sizeof(char) * (size + 2));
+    if (!line)
+        return (NULL);
+    ft_strlcpy(line, backup, size + 1);
+    if (backup[size] == &#39;\n&#39;)
+        line[size++] = &#39;\n&#39;;
+    line[size] = &#39;\0&#39;;
+    return (line);
+&#125;
+</code></pre>
+<pre><code>&lt;/details&gt;
+
+
+A última função é a `remove_read_line()` que remove a linha lida. Ela recebe como parâmetro a `static` , nela eu procuro até a quebra de linha `\n` ou até chegar no final, se chega no final, dou um free na variável e retorno `NULL` , senão, eu malloco uma nova variavel com o (tamanho total de backup, menos o tamanho da linha), copio o restante de backup pra uma nova variável e dou free nela.
+
+&lt;details&gt;
+ &lt;summary&gt;Mostrar código&lt;/summary&gt;
+```c
+ static char    *remove_read_line(char *backup)
+&#123;
+ int        i;
+ int        j;
+ char    *new_backup;
+
+ i = 0;
+ while (backup[i] &amp;&amp; backup[i] != &#39;\n&#39;)
+     i++;
+ if (!backup[i])
+ &#123;
+     free(backup);
+     return (NULL);
+ &#125;
+ new_backup = (char *)malloc(sizeof(char) * (ft_strlen(backup) - i + 1));
+ if (!new_backup)
+     return (NULL);
+ i++;
+ j = 0;
+ while (backup[i])
+     new_backup[j++] = backup[i++];
+ new_backup[j] = &#39;\0&#39;;
+ free(backup);
+ return (new_backup);
+&#125;
+</code></pre>
 </details>
 
 

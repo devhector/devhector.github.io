@@ -160,51 +160,46 @@
 <h2 id="Repositorio"><a href="#Repositorio" class="headerlink" title="Repositório"></a>Repositório</h2><p>O repositório no <a target="_blank" rel="noopener" href="https://github.com/devhector/nodejs-CRUD">github</a> contém todas as dependências, faça o clone e dê um <code>npm install</code></p>
 <h2 id="Inicio-do-projeto"><a href="#Inicio-do-projeto" class="headerlink" title="Início do projeto"></a>Início do projeto</h2><p>Caso não queira acessar o repositório, você pode digitar o seguinte comando no terminal <code>npm i body-parser express mongoose request dotenv</code> e será instalado as dependências que vamos utilizar.</p>
 <h3 id="Criando-o-server"><a href="#Criando-o-server" class="headerlink" title="Criando o server"></a>Criando o server</h3><p>vamos criar um arquivo com o nome de <code>server.js</code>, e vamos colocar:</p>
-<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">const</span> express <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'express'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword">const</span> bodyParser <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'body-parser'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword">const</span> mongoose <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'mongoose'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword">const</span> dotenv <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'dotenv'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword">const</span> product <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'./app/models/product'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<pre><code class="javascript">const express = require(&#39;express&#39;);
+const bodyParser = require(&#39;body-parser&#39;);
+const mongoose = require(&#39;mongoose&#39;);
+const dotenv = require(&#39;dotenv&#39;);
+const product = require(&#39;./app/models/product&#39;);
 
-dotenv<span class="token punctuation">.</span><span class="token function">config</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword">const</span> app <span class="token operator">=</span> <span class="token function">express</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+dotenv.config();
+const app = express();
 
-app<span class="token punctuation">.</span><span class="token function">use</span><span class="token punctuation">(</span>bodyParser<span class="token punctuation">.</span><span class="token function">urlencoded</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span> extended<span class="token operator">:</span> <span class="token boolean">true</span> <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-app<span class="token punctuation">.</span><span class="token function">use</span><span class="token punctuation">(</span>bodyParser<span class="token punctuation">.</span><span class="token function">json</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+app.use(bodyParser.urlencoded(&#123; extended: true &#125;));
+app.use(bodyParser.json());
 
-<span class="token keyword">let</span> port <span class="token operator">=</span> process<span class="token punctuation">.</span>env<span class="token punctuation">.</span><span class="token constant">PORT</span> <span class="token operator">||</span> <span class="token number">8003</span><span class="token punctuation">;</span>
-<span class="token keyword">let</span> userDB <span class="token operator">=</span> process<span class="token punctuation">.</span>env<span class="token punctuation">.</span><span class="token constant">DB_USER</span><span class="token punctuation">;</span>
-<span class="token keyword">let</span> passwordDB <span class="token operator">=</span> process<span class="token punctuation">.</span>env<span class="token punctuation">.</span><span class="token constant">DB_PASSWORD</span><span class="token punctuation">;</span>
-<span class="token keyword">let</span> nameDB <span class="token operator">=</span> process<span class="token punctuation">.</span>env<span class="token punctuation">.</span><span class="token constant">DB_NAME</span><span class="token punctuation">;</span>
-<span class="token keyword">let</span> hostDB <span class="token operator">=</span> process<span class="token punctuation">.</span>env<span class="token punctuation">.</span><span class="token constant">DB_HOST</span><span class="token punctuation">;</span>
+let port = process.env.PORT || 8003;
+let userDB = process.env.DB_USER;
+let passwordDB = process.env.DB_PASSWORD;
+let nameDB = process.env.DB_NAME;
+let hostDB = process.env.DB_HOST;
 
-mongoose<span class="token punctuation">.</span><span class="token function">connect</span><span class="token punctuation">(</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">mongodb+srv://</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span>userDB<span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token string">:</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span>passwordDB<span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token string">@</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span>hostDB<span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token string">.mongodb.net/</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span>nameDB<span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token string">?retryWrites=true&amp;w=majority</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">,</span> <span class="token punctuation">&#123;</span>useUnifiedTopology<span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span> useNewUrlParser<span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+mongoose.connect(`mongodb+srv://$&#123;userDB&#125;:$&#123;passwordDB&#125;@$&#123;hostDB&#125;.mongodb.net/$&#123;nameDB&#125;?retryWrites=true&amp;w=majority`, &#123;useUnifiedTopology: true, useNewUrlParser: true&#125;);
 
-<span class="token keyword">let</span> router <span class="token operator">=</span> express<span class="token punctuation">.</span><span class="token function">Router</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+let router = express.Router();
 
-router<span class="token punctuation">.</span><span class="token function">use</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">req<span class="token punctuation">,</span> res<span class="token punctuation">,</span> next</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
-    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">"Está acontecendo algo."</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token function">next</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-
-router<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token string">'/'</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token parameter">req<span class="token punctuation">,</span> res</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
-
-    res<span class="token punctuation">.</span><span class="token function">json</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span> message<span class="token operator">:</span> <span class="token string">'Funcionando lindamente!'</span><span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-<span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-app<span class="token punctuation">.</span><span class="token function">use</span><span class="token punctuation">(</span><span class="token string">'/api'</span><span class="token punctuation">,</span> router<span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-app<span class="token punctuation">.</span><span class="token function">listen</span><span class="token punctuation">(</span>port<span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'Iniciando o server na porta '</span> <span class="token operator">+</span> port<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+router.use((req, res, next) =&gt; &#123;
+    console.log(&quot;Está acontecendo algo.&quot;);
+    next();
+&#125;);
 
 
+router.get(&#39;/&#39;, (req, res) =&gt; &#123;
 
+    res.json(&#123; message: &#39;Funcionando lindamente!&#39;&#125;);
 
+&#125;);
 
+app.use(&#39;/api&#39;, router);
 
+app.listen(port);
+
+console.log(&#39;Iniciando o server na porta &#39; + port);
+</code></pre>
 <h3 id="Rotas"><a href="#Rotas" class="headerlink" title="Rotas"></a>Rotas</h3><table>
 <thead>
 <tr>
