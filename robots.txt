@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://devhector.github.io/sitemap.xml
