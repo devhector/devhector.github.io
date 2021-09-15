@@ -9,8 +9,37 @@
     <atom:link href="https://devhector.github.io/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>Cadete da 42SP 👨🏽‍🚀 e Estudante de Eng. de Computação na UFPEL 💻. Esse blog é uma forma de documentar publicamente os meus estudos.</description>
-    <pubDate>Mon, 06 Sep 2021 20:46:03 GMT</pubDate>
+    <pubDate>Wed, 15 Sep 2021 21:44:47 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>ft_printf 42</title>
+      <link>https://devhector.github.io/2021/09/15/ft-printf/</link>
+      <guid>https://devhector.github.io/2021/09/15/ft-printf/</guid>
+      <pubDate>Wed, 15 Sep 2021 21:44:47 GMT</pubDate>
+      
+        
+        
+      <description>&lt;h1 id=&quot;Geral&quot;&gt;&lt;a href=&quot;#Geral&quot; class=&quot;headerlink&quot; title=&quot;Geral&quot;&gt;&lt;/a&gt;Geral&lt;/h1&gt;&lt;p&gt;Protótipo da função:&lt;/p&gt;
+&lt;figure class=&quot;highlight c&quot;&gt;&lt;tabl</description>
+        
+      
+      
+      
+      <content:encoded><![CDATA[<h1 id="Geral"><a href="#Geral" class="headerlink" title="Geral"></a>Geral</h1><p>Protótipo da função:</p><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">ft_prinf</span><span class="params">(<span class="keyword">const</span> <span class="keyword">char</span> *, ...)</span></span></span><br></pre></td></tr></table></figure><p>A ideia é reescrever a função <code>printf()</code> </p><h4 id="Descricao"><a href="#Descricao" class="headerlink" title="Descrição"></a>Descrição</h4><p>Uma pequena descrição das conversões requeridas:</p><p>• %c imprime um único caractere. </p><p>• %s imprime uma string. </p><p>• %p O argumento void * ponteiro é impresso em hexadecimal. </p><p>• %d imprime um número decimal (base 10).</p><p>• %i imprime um inteiro na base 10.</p><p>• %u imprime um número decimal sem sinal (base 10). </p><p>• %x imprime um número em hexadecimal (base 16).</p><p>• %% imprimir um sinal de porcentagem.</p><p><img src="/home/hh/Documentos/dev/blog-archive/devhector.github.io/public/images/image-20210915184324386.png" alt="image-20210915184324386"></p>]]></content:encoded>
+      
+      
+      
+      <category domain="https://devhector.github.io/tags/C/">C</category>
+      
+      <category domain="https://devhector.github.io/tags/c/">c</category>
+      
+      <category domain="https://devhector.github.io/tags/42/">42</category>
+      
+      
+      <comments>https://devhector.github.io/2021/09/15/ft-printf/#disqus_thread</comments>
+      
+    </item>
     
     <item>
       <title>GNL - get_next_line 42</title>
