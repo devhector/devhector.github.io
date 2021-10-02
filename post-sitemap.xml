@@ -2,71 +2,71 @@
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
     <url>
-        <loc>https://devhector.github.io/</loc>
+        <loc>https://hector.dev.br/</loc>
         <changefreq>daily</changefreq>
         <priority>1</priority>
     </url>
 
 
     <url>
-        <loc>https://devhector.github.io/2021/09/15/ft-printf/</loc>
-        <lastmod>2021-09-15T22:07:08.375Z</lastmod>
+        <loc>https://hector.dev.br/2021/09/15/ft-printf/</loc>
+        <lastmod>2021-09-15T22:07:08.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
     </url>
 
     <url>
-        <loc>https://devhector.github.io/2021/08/27/GNL-get-next-line-42/</loc>
-        <lastmod>2021-09-06T20:46:03.646Z</lastmod>
+        <loc>https://hector.dev.br/2021/08/27/GNL-get-next-line-42/</loc>
+        <lastmod>2021-09-06T20:46:03.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
     </url>
 
     <url>
-        <loc>https://devhector.github.io/2021/05/03/Conciliando-Faculdade-com-os-side-projects/</loc>
-        <lastmod>2021-05-23T21:36:58.270Z</lastmod>
+        <loc>https://hector.dev.br/2021/05/03/Conciliando-Faculdade-com-os-side-projects/</loc>
+        <lastmod>2021-05-23T21:36:58.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
     </url>
 
     <url>
-        <loc>https://devhector.github.io/2021/02/03/CRUD-com-NodeJs-Express-Mongodb/</loc>
-        <lastmod>2021-05-19T00:39:18.889Z</lastmod>
+        <loc>https://hector.dev.br/2021/02/03/CRUD-com-NodeJs-Express-Mongodb/</loc>
+        <lastmod>2021-05-19T00:39:18.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
     </url>
 
     <url>
-        <loc>https://devhector.github.io/2021/01/31/Criando-um-blog-pessoal-com-Hexo-e-Github-Pages/</loc>
-        <lastmod>2021-05-19T00:39:18.889Z</lastmod>
+        <loc>https://hector.dev.br/2021/01/31/Criando-um-blog-pessoal-com-Hexo-e-Github-Pages/</loc>
+        <lastmod>2021-05-19T00:39:18.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
     </url>
 
     <url>
-        <loc>https://devhector.github.io/2021/01/31/Meu-primeiro-post/</loc>
-        <lastmod>2021-05-19T00:39:18.889Z</lastmod>
+        <loc>https://hector.dev.br/2021/01/31/Meu-primeiro-post/</loc>
+        <lastmod>2021-05-19T00:39:18.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
     </url>
 
     <url>
-        <loc>https://devhector.github.io/2021/02/03/Mudando-o-tema-do-Hexo/</loc>
-        <lastmod>2021-05-19T00:39:18.889Z</lastmod>
+        <loc>https://hector.dev.br/2021/02/03/Mudando-o-tema-do-Hexo/</loc>
+        <lastmod>2021-05-19T00:39:18.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
     </url>
 
     <url>
-        <loc>https://devhector.github.io/2021/03/03/Teste-para-estagio-back-end/</loc>
-        <lastmod>2021-05-19T00:39:18.889Z</lastmod>
+        <loc>https://hector.dev.br/2021/03/03/Teste-para-estagio-back-end/</loc>
+        <lastmod>2021-05-19T00:39:18.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
