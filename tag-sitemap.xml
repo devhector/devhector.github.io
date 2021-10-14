@@ -3,22 +3,36 @@
 
 
     <url>
+        <loc>https://hector.dev.br/tags/programacao/</loc>
+        <lastmod>2021-10-14T16:13:41.327Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://hector.dev.br/tags/vida/</loc>
+        <lastmod>2021-10-14T16:13:41.327Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
         <loc>https://hector.dev.br/tags/42/</loc>
-        <lastmod>2021-10-08T20:33:11.157Z</lastmod>
+        <lastmod>2021-10-08T22:55:37.684Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
         <loc>https://hector.dev.br/tags/c/</loc>
-        <lastmod>2021-10-08T20:33:11.157Z</lastmod>
+        <lastmod>2021-10-08T22:55:37.684Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
         <loc>https://hector.dev.br/tags/C/</loc>
-        <lastmod>2021-10-08T20:33:11.157Z</lastmod>
+        <lastmod>2021-10-08T22:55:37.684Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
@@ -26,20 +40,6 @@
     <url>
         <loc>https://hector.dev.br/tags/42SP/</loc>
         <lastmod>2021-09-06T20:46:03.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://hector.dev.br/tags/programacao/</loc>
-        <lastmod>2021-05-23T21:36:58.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://hector.dev.br/tags/vida/</loc>
-        <lastmod>2021-05-23T21:36:58.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
