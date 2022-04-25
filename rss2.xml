@@ -8,9 +8,34 @@
     
     <atom:link href="https://hector.dev.br/rss2.xml" rel="self" type="application/rss+xml"/>
     
-    <description>Estudante de Eng. de Computação na UFPEL 💻 e Engenharia de Software na 42SP 👨🏽‍🚀. Esse blog é uma forma de documentar publicamente os meus estudos.</description>
-    <pubDate>Fri, 08 Oct 2021 22:55:37 GMT</pubDate>
+    <description>Estudante de Eng. de Computação na [UFPEL](https://portal.ufpel.edu.br/) 💻 e Engenharia de Software na [42SP](https://www.42sp.org.br/) 👨🏽‍🚀. Esse blog é uma forma de documentar publicamente os meus estudos.</description>
+    <pubDate>Mon, 25 Apr 2022 15:42:55 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>push-swap 42</title>
+      <link>https://hector.dev.br/2022/04/22/push-swap-42/</link>
+      <guid>https://hector.dev.br/2022/04/22/push-swap-42/</guid>
+      <pubDate>Sat, 23 Apr 2022 00:01:03 GMT</pubDate>
+      
+        
+        
+      <description>&lt;p&gt;&lt;img src=&quot;/home/hh/Documentos/dev/blog-archive/devhector.github.io/source/images/push-swap-42.png&quot; alt=&quot;push-swap-42&quot;&gt;&lt;/p&gt;
+</description>
+        
+      
+      
+      
+      <content:encoded><![CDATA[<p><img src="/home/hh/Documentos/dev/blog-archive/devhector.github.io/source/images/push-swap-42.png" alt="push-swap-42"></p>]]></content:encoded>
+      
+      
+      
+      <category domain="https://hector.dev.br/tags/42-c/">-42 -c</category>
+      
+      
+      <comments>https://hector.dev.br/2022/04/22/push-swap-42/#disqus_thread</comments>
+      
+    </item>
     
     <item>
       <title>ft_printf 42</title>
