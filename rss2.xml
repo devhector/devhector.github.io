@@ -9,7 +9,7 @@
     <atom:link href="https://hector.dev.br/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>Estudante de Eng. de Computação na [UFPEL](https://portal.ufpel.edu.br/) 💻 e Engenharia de Software na [42SP](https://www.42sp.org.br/) 👨🏽‍🚀. Esse blog é uma forma de documentar publicamente os meus estudos.</description>
-    <pubDate>Mon, 25 Apr 2022 15:42:55 GMT</pubDate>
+    <pubDate>Mon, 25 Apr 2022 16:08:38 GMT</pubDate>
     <generator>http://hexo.io/</generator>
     
     <item>
@@ -20,13 +20,13 @@
       
         
         
-      <description>&lt;p&gt;&lt;img src=&quot;/home/hh/Documentos/dev/blog-archive/devhector.github.io/source/images/push-swap-42.png&quot; alt=&quot;push-swap-42&quot;&gt;&lt;/p&gt;
+      <description>&lt;p&gt;&lt;img src=&quot;https://hector.dev.br/images/push-swap-42.png&quot; alt=&quot;push-swap-42&quot;&gt;&lt;/p&gt;
 </description>
         
       
       
       
-      <content:encoded><![CDATA[<p><img src="/home/hh/Documentos/dev/blog-archive/devhector.github.io/source/images/push-swap-42.png" alt="push-swap-42"></p>]]></content:encoded>
+      <content:encoded><![CDATA[<p><img src="https://hector.dev.br/images/push-swap-42.png" alt="push-swap-42"></p>]]></content:encoded>
       
       
       
