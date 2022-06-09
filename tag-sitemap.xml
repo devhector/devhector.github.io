@@ -3,113 +3,106 @@
 
 
     <url>
-        <loc>https://hector.dev.br/tags/42-c/</loc>
-        <lastmod>2022-04-25T16:08:38.964Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://hector.dev.br/tags/programacao/</loc>
-        <lastmod>2021-10-14T16:17:47.816Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://hector.dev.br/tags/vida/</loc>
-        <lastmod>2021-10-14T16:17:47.816Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>https://hector.dev.br/tags/42/</loc>
-        <lastmod>2021-10-08T22:55:37.684Z</lastmod>
+        <lastmod>2022-06-09T14:37:32.471Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
         <loc>https://hector.dev.br/tags/c/</loc>
-        <lastmod>2021-10-08T22:55:37.684Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://hector.dev.br/tags/C/</loc>
-        <lastmod>2021-10-08T22:55:37.684Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://hector.dev.br/tags/42SP/</loc>
-        <lastmod>2021-09-06T20:46:03.000Z</lastmod>
+        <lastmod>2022-06-09T14:37:32.471Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
         <loc>https://hector.dev.br/tags/postgresql/</loc>
-        <lastmod>2021-05-19T00:39:18.000Z</lastmod>
+        <lastmod>2022-06-09T14:31:50.804Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
         <loc>https://hector.dev.br/tags/tema/</loc>
-        <lastmod>2021-05-19T00:39:18.000Z</lastmod>
+        <lastmod>2022-06-09T14:31:50.804Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
         <loc>https://hector.dev.br/tags/primeiro-post/</loc>
-        <lastmod>2021-05-19T00:39:18.000Z</lastmod>
+        <lastmod>2022-06-09T14:31:50.804Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://hector.dev.br/tags/42SP/</loc>
+        <lastmod>2022-06-09T14:31:50.804Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
         <loc>https://hector.dev.br/tags/github/</loc>
-        <lastmod>2021-05-19T00:39:18.000Z</lastmod>
+        <lastmod>2022-06-09T14:31:50.804Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
         <loc>https://hector.dev.br/tags/hexo/</loc>
-        <lastmod>2021-05-19T00:39:18.000Z</lastmod>
+        <lastmod>2022-06-09T14:31:50.804Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
         <loc>https://hector.dev.br/tags/tutorial/</loc>
-        <lastmod>2021-05-19T00:39:18.000Z</lastmod>
+        <lastmod>2022-06-09T14:31:50.804Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://hector.dev.br/tags/programacao/</loc>
+        <lastmod>2022-06-09T14:31:50.804Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://hector.dev.br/tags/vida/</loc>
+        <lastmod>2022-06-09T14:31:50.804Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
         <loc>https://hector.dev.br/tags/mongodb/</loc>
-        <lastmod>2021-05-19T00:39:18.000Z</lastmod>
+        <lastmod>2022-06-09T14:31:50.804Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
         <loc>https://hector.dev.br/tags/js/</loc>
-        <lastmod>2021-05-19T00:39:18.000Z</lastmod>
+        <lastmod>2022-06-09T14:31:50.804Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
         <loc>https://hector.dev.br/tags/nodejs/</loc>
-        <lastmod>2021-05-19T00:39:18.000Z</lastmod>
+        <lastmod>2022-06-09T14:31:50.804Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://hector.dev.br/tags/C/</loc>
+        <lastmod>2022-06-09T14:31:50.804Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>

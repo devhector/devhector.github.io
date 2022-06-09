@@ -10,31 +10,7 @@
 
     <url>
         <loc>https://hector.dev.br/2022/04/22/push-swap-42/</loc>
-        <lastmod>2022-04-25T16:08:38.964Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://hector.dev.br/2021/05/03/Conciliando-Faculdade-com-os-side-projects/</loc>
-        <lastmod>2021-10-14T16:17:47.816Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://hector.dev.br/2021/09/15/ft-printf/</loc>
-        <lastmod>2021-10-08T22:55:37.684Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://hector.dev.br/2021/08/27/GNL-get-next-line-42/</loc>
-        <lastmod>2021-09-06T20:46:03.000Z</lastmod>
+        <lastmod>2022-06-09T14:37:32.471Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -42,7 +18,15 @@
 
     <url>
         <loc>https://hector.dev.br/2021/02/03/CRUD-com-NodeJs-Express-Mongodb/</loc>
-        <lastmod>2021-05-19T00:39:18.000Z</lastmod>
+        <lastmod>2022-06-09T14:31:50.804Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://hector.dev.br/2021/05/03/Conciliando-Faculdade-com-os-side-projects/</loc>
+        <lastmod>2022-06-09T14:31:50.804Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -50,7 +34,15 @@
 
     <url>
         <loc>https://hector.dev.br/2021/01/31/Criando-um-blog-pessoal-com-Hexo-e-Github-Pages/</loc>
-        <lastmod>2021-05-19T00:39:18.000Z</lastmod>
+        <lastmod>2022-06-09T14:31:50.804Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://hector.dev.br/2021/08/27/GNL-get-next-line-42/</loc>
+        <lastmod>2022-06-09T14:31:50.804Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -58,7 +50,7 @@
 
     <url>
         <loc>https://hector.dev.br/2021/01/31/Meu-primeiro-post/</loc>
-        <lastmod>2021-05-19T00:39:18.000Z</lastmod>
+        <lastmod>2022-06-09T14:31:50.804Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -66,7 +58,7 @@
 
     <url>
         <loc>https://hector.dev.br/2021/02/03/Mudando-o-tema-do-Hexo/</loc>
-        <lastmod>2021-05-19T00:39:18.000Z</lastmod>
+        <lastmod>2022-06-09T14:31:50.804Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -74,7 +66,15 @@
 
     <url>
         <loc>https://hector.dev.br/2021/03/03/Teste-para-estagio-back-end/</loc>
-        <lastmod>2021-05-19T00:39:18.000Z</lastmod>
+        <lastmod>2022-06-09T14:31:50.804Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://hector.dev.br/2021/09/15/ft-printf/</loc>
+        <lastmod>2022-06-09T14:31:50.804Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
