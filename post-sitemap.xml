@@ -9,6 +9,14 @@
 
 
     <url>
+        <loc>https://hector.dev.br/2022/06/21/De-onde-vim-onde-estou-e-para-onde-vou/</loc>
+        <lastmod>2022-06-21T22:10:58.558Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>https://hector.dev.br/2022/04/22/push-swap-42/</loc>
         <lastmod>2022-06-09T14:37:32.471Z</lastmod>
         <changefreq>weekly</changefreq>

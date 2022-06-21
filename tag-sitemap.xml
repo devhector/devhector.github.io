@@ -3,6 +3,13 @@
 
 
     <url>
+        <loc>https://hector.dev.br/tags/vida/</loc>
+        <lastmod>2022-06-21T22:10:58.558Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
         <loc>https://hector.dev.br/tags/42/</loc>
         <lastmod>2022-06-09T14:37:32.471Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -67,13 +74,6 @@
 
     <url>
         <loc>https://hector.dev.br/tags/programacao/</loc>
-        <lastmod>2022-06-09T14:31:50.804Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://hector.dev.br/tags/vida/</loc>
         <lastmod>2022-06-09T14:31:50.804Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>

@@ -8,9 +8,33 @@
     
     <atom:link href="https://hector.dev.br/rss2.xml" rel="self" type="application/rss+xml"/>
     
-    <description>Estudante de Eng. de Computação na [UFPEL](https://portal.ufpel.edu.br/) 💻 e Engenharia de Software na [42SP](https://www.42sp.org.br/) 👨🏽‍🚀. Esse blog é uma forma de documentar publicamente os meus estudos.</description>
-    <pubDate>Thu, 09 Jun 2022 14:37:32 GMT</pubDate>
+    <description>Cria de Bangu ZO do RJ | Estudante de Eng. de Computação na [UFPEL](https://portal.ufpel.edu.br/) 💻 e Engenharia de Software na [42SP](https://www.42sp.org.br/) 👨🏽‍🚀. Esse blog é uma forma de documentar publicamente os meus estudos.</description>
+    <pubDate>Tue, 21 Jun 2022 22:10:58 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>De onde vim, onde estou e para onde vou</title>
+      <link>https://hector.dev.br/2022/06/21/De-onde-vim-onde-estou-e-para-onde-vou/</link>
+      <guid>https://hector.dev.br/2022/06/21/De-onde-vim-onde-estou-e-para-onde-vou/</guid>
+      <pubDate>Tue, 21 Jun 2022 22:02:33 GMT</pubDate>
+      
+        
+        
+      <description>&lt;h6 id=&quot;Disciplina-Computacao-e-sociedade&quot;&gt;&lt;a href=&quot;#Disciplina-Computacao-e-sociedade&quot; class=&quot;headerlink&quot; title=&quot;Disciplina: Computação e s</description>
+        
+      
+      
+      
+      <content:encoded><![CDATA[<h6 id="Disciplina-Computacao-e-sociedade"><a href="#Disciplina-Computacao-e-sociedade" class="headerlink" title="Disciplina: Computação e sociedade"></a>Disciplina: Computação e sociedade</h6><p><strong>Atividade:</strong> Construção de um <strong>texto refletindo sobre o futuro</strong></p><p>Esse texto conta uma breve história da minha trajetória até o presente.</p><p>O futuro é incerto, digo isto porque em 2016 não imaginaria onde chegaria. Sou do subúrbio carioca, trabalho desde os 18 anos e em 2016 quando tinha 23 decidi que precisava fazer uma <strong>faculdade</strong>, não queria continuar trabalhando mais de 8 horas diárias por um salário mínimo com descontos em uma profissão que não me dava satisfação, essa me parecia a decisão mais sábia a se fazer no momento e realmente vem sendo.<br>Nessa época me matriculei numa faculdade particular no Rio de Janeiro, com a ideia de conciliar trabalho e faculdade, já que a faculdade precisava ser paga. Mantive uma rotina intensa e semanal de acordar às 6 e ir para o trabalho as 7, com um trajeto de 2 horas até lá, e depois do expediente me deslocava para a faculdade que ficava mais ao centro da cidade e da faculdade para a casa, chegando em casa por volta de 23:30/00:00.<br>Essa rotina durou dois anos, e durante esse processo eu percebi que não estava aprendendo de fato, e sim estudando para passar para o próximo semestre. Foi então que fiz uma escolha que mudaria o rumo da minha vida, decidi que prestaria o ENEM - nunca achei que seria capaz - e que faria uma faculdade pública, comuniquei ao meu pai sobre a decisão para que ele me desse respaldo, então em 2018 fiz um acordo com a empresa que eu trabalhava, eles me demitiram e com a grana da rescisão paguei um prevest, e durante o prevest busquei uma faculdade que fosse no sul (queria fugir da violência e o calor do RJ).<br>No segundo semestre de 2018 minha namorada passou na UFPEL e no primeiro semestre de 2019 foi a minha vez, desde lá aconteceram muitas coisas, uma pandemia global, conheci uma iniciativa incrível de uma escola de engenharia software que me garante uma bolsa que me ajuda a me manter em Pelotas. E é bem aqui onde estou, conciliando a UFPEL com a 42SP, volto a repetir que o futuro é incerto. O que é certo no momento, é que eu quero seguir com desenvolvimento de software, isso realmente me dá satisfação.<br>Não sei bem o caminho que terei que trilhar para conquistar tudo que almejo, mas a vida é feita de boas escolhas (e muitas escolhas dificeis) e pretendo manter isso como meu norte, assim como vem acontecendo.</p>]]></content:encoded>
+      
+      
+      
+      <category domain="https://hector.dev.br/tags/vida/">vida</category>
+      
+      
+      <comments>https://hector.dev.br/2022/06/21/De-onde-vim-onde-estou-e-para-onde-vou/#disqus_thread</comments>
+      
+    </item>
     
     <item>
       <title>push-swap 42</title>
