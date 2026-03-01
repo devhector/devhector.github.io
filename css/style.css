@@ -419,7 +419,7 @@ body table {
   width: 100%;
   border-collapse: collapse;
   text-align: left;
-  font-size: 13px;
+  font-size: 14px;
   overflow: auto;
   display: block;
 }
@@ -428,7 +428,7 @@ body th {
   border-bottom: 1px dashed #666;
   color: #eee;
   font-weight: bold;
-  font-size: 14px;
+  font-size: 15px;
 }
 body td {
   padding: 0 8px;
@@ -459,7 +459,7 @@ body {
   color: #c9cacc;
   font-display: swap;
   font-weight: 400;
-  font-size: 15px;
+  font-size: 16px;
   font-family: "Menlo", "Meslo LG", monospace;
   line-height: 1.725;
   text-rendering: geometricPrecision;
@@ -1096,9 +1096,15 @@ article .content h2:before {
 article .content img,
 article .content video {
   display: block;
-  margin: auto;
+  margin: 1.5rem auto;
   max-width: 100%;
   height: auto;
+  border-radius: 4px;
+  transition: box-shadow 0.3s ease;
+}
+article .content img:hover,
+article .content video:hover {
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
 }
 article .content .video-container {
   position: relative;
@@ -1117,23 +1123,15 @@ article .content .video-container embed {
   height: 100%;
 }
 article .content blockquote {
-  margin: 1rem 10px;
-  padding: 0.5em 10px;
-  background: inherit;
+  margin: 1.5rem 0;
+  padding: 0.5rem 1.5rem;
+  background: rgba(204,255,182,0.05);
+  border-left: 4px solid #ccffb6;
   color: #ccffb6;
-  quotes: "\201C" "\201D" "\2018" "\2019";
-  font-weight: bold;
+  font-style: italic;
 }
 article .content blockquote p {
   margin: 0;
-}
-article .content blockquote:before {
-  margin-right: 0.25em;
-  color: #ccffb6;
-  content: "\201C";
-  vertical-align: -0.4em;
-  font-size: 2em;
-  line-height: 0.1em;
 }
 article .content blockquote footer {
   margin: line-height 0;
@@ -1385,7 +1383,7 @@ article .content .caption {
   color: #1d1f21;
   font-display: swap;
   font-weight: 400;
-  font-size: 12px;
+  font-size: 12.8px;
   font-family: "Menlo", "Meslo LG", monospace;
   line-height: 1.725;
   text-rendering: geometricPrecision;
@@ -1487,57 +1485,67 @@ article .content .caption {
   content: ")";
 }
 .highlight {
-  background: #2b2b2b;
-  color: #bababa;
+  background: #282828;
+  color: #ddd;
 }
-.highlight .code .strong,
-.highlight .code .emphasis {
-  color: #a8a8a2;
-}
-.highlight .code .bullet,
-.highlight .code .quote,
-.highlight .code .link,
-.highlight .code .number,
-.highlight .code .regexp,
-.highlight .code .literal {
-  color: #6896ba;
-}
-.highlight .code .code,
-.highlight .code .selector-class {
-  color: #a6e22e;
-}
-.highlight .code .emphasis {
-  font-style: italic;
-}
+.highlight .code .tag,
 .highlight .code .keyword,
 .highlight .code .selector-tag,
-.highlight .code .section,
-.highlight .code .attribute,
-.highlight .code .name,
-.highlight .code .variable {
-  color: #cb7832;
+.highlight .code .literal,
+.highlight .code .strong,
+.highlight .code .name {
+  color: #fb4934;
 }
-.highlight .code .params {
-  color: #b9b9b9;
+.highlight .code .code {
+  color: #458588;
+}
+.highlight .code .class .title {
+  color: #83a598;
+}
+.highlight .code .attribute,
+.highlight .code .symbol,
+.highlight .code .regexp,
+.highlight .code .link {
+  color: #458588;
 }
 .highlight .code .string,
+.highlight .code .bullet,
 .highlight .code .subst,
+.highlight .code .title,
+.highlight .code .section,
+.highlight .code .emphasis,
 .highlight .code .type,
 .highlight .code .built_in,
 .highlight .code .builtin-name,
-.highlight .code .symbol,
-.highlight .code .selector-id,
 .highlight .code .selector-attr,
 .highlight .code .selector-pseudo,
+.highlight .code .addition,
+.highlight .code .variable,
 .highlight .code .template-tag,
-.highlight .code .template-variable,
-.highlight .code .addition {
-  color: #e0c46c;
+.highlight .code .template-variable {
+  color: #b8bb26;
 }
 .highlight .code .comment,
+.highlight .code .quote,
 .highlight .code .deletion,
 .highlight .code .meta {
-  color: #7f7f7f;
+  color: #a89984;
+}
+.highlight .code .keyword,
+.highlight .code .selector-tag,
+.highlight .code .literal,
+.highlight .code .doctag,
+.highlight .code .title,
+.highlight .code .section,
+.highlight .code .type,
+.highlight .code .selector-id {
+  font-weight: bold;
+}
+.highlight .code .number {
+  color: #b16286;
+}
+.highlight .code .operator {
+  color: #fe8019;
 }
 pre {
   overflow-x: auto;
