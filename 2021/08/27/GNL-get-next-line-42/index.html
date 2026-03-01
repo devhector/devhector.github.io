@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang=pt>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="DescriçãoO get_next_line é um programa que retornar uma linha do arquivo lido. O que sei até agora:- File Descriptor (FD)O file descriptor segundo o wikipedia é um indicador abstrato para indicar um a">
+<meta property="og:type" content="article">
+<meta property="og:title" content="GNL - get_next_line 42">
+<meta property="og:url" content="https://hector.dev.br/2021/08/27/GNL-get-next-line-42/">
+<meta property="og:site_name" content="Hector Fernandes">
+<meta property="og:description" content="DescriçãoO get_next_line é um programa que retornar uma linha do arquivo lido. O que sei até agora:- File Descriptor (FD)O file descriptor segundo o wikipedia é um indicador abstrato para indicar um a">
+<meta property="og:locale" content="pt_BR">
+<meta property="article:published_time" content="2021-08-27T17:38:59.000Z">
+<meta property="article:modified_time" content="2022-06-09T14:31:50.804Z">
+<meta property="article:author" content="Hector Fernandes">
+<meta property="article:tag" content="C">
+<meta property="article:tag" content="c">
+<meta property="article:tag" content="42SP">
+<meta name="twitter:card" content="summary">
+    
+	<link rel="canonical" href="https://hector.dev.br/2021/08/27/gnl-get-next-line-42/"/>
+    
+      
+        
+          <link rel="shortcut icon" href="/images/favicon.ico">
+        
+      
+      
+        
+          <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+        
+      
+      
+        
+          <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+        
+      
+    
+    <!-- title -->
+    <title>GNL - get_next_line 42</title>
+    <!-- styles -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <!-- persian styles -->
+    
+      
+<link rel="stylesheet" href="/css/rtl.css">
+
+    
+    <!-- rss -->
+    
+    
+      <link rel="alternate" href="/true" title="Hector Fernandes" type="application/atom+xml" />
+    
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<!-- themes/cactus/_partial/google-adsense.ejs -->
+
+<!-- google adsense -->
+<script data-ad-client="ca-pub-3004193177162162" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<body class="max-width mx-auto px3 ltr">
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fas fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+         
+          <li><a href="/">Início</a></li>
+         
+          <li><a href="/archives/">Artigos</a></li>
+         
+          <li><a target="_blank" rel="noopener" href="https://github.com/devhector">Projetos</a></li>
+         
+          <li><a href="/search/">Buscar</a></li>
+        
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li><a class="icon" href="/2021/09/15/ft-printf/"><i class="fas fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        
+        
+        <li><a class="icon" href="/2021/05/03/Conciliando-Faculdade-com-os-side-projects/"><i class="fas fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" href="#"><i class="fas fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Post Anterior</span>
+      <span id="i-next" class="info" style="display:none;">Post Seguinte</span>
+      <span id="i-top" class="info" style="display:none;">Acima</span>
+      <span id="i-share" class="info" style="display:none;">Compartihar Post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://hector.dev.br/2021/08/27/GNL-get-next-line-42/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://hector.dev.br/2021/08/27/GNL-get-next-line-42/&text=GNL - get_next_line 42"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://hector.dev.br/2021/08/27/GNL-get-next-line-42/&title=GNL - get_next_line 42"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://hector.dev.br/2021/08/27/GNL-get-next-line-42/&is_video=false&description=GNL - get_next_line 42"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=GNL - get_next_line 42&body=Check out this article: https://hector.dev.br/2021/08/27/GNL-get-next-line-42/"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://hector.dev.br/2021/08/27/GNL-get-next-line-42/&title=GNL - get_next_line 42"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://hector.dev.br/2021/08/27/GNL-get-next-line-42/&title=GNL - get_next_line 42"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://hector.dev.br/2021/08/27/GNL-get-next-line-42/&title=GNL - get_next_line 42"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://hector.dev.br/2021/08/27/GNL-get-next-line-42/&title=GNL - get_next_line 42"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://hector.dev.br/2021/08/27/GNL-get-next-line-42/&name=GNL - get_next_line 42&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://hector.dev.br/2021/08/27/GNL-get-next-line-42/&t=GNL - get_next_line 42"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    <div id="toc">
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Descricao"><span class="toc-number">1.</span> <span class="toc-text">Descrição</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#O-que-sei-ate-agora"><span class="toc-number">1.1.</span> <span class="toc-text">O que sei até agora:</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#File-Descriptor-FD"><span class="toc-number">1.1.0.1.</span> <span class="toc-text">- File Descriptor (FD)</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#read"><span class="toc-number">1.1.0.1.1.</span> <span class="toc-text">read()</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Anotacoes-gerais"><span class="toc-number">1.1.0.1.2.</span> <span class="toc-text">Anotações gerais.</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Linha-geral"><span class="toc-number">1.1.0.1.3.</span> <span class="toc-text">Linha geral:</span></a></li></ol></li></ol></li></ol></li></ol></li></ol>
+    </div>
+  </span>
+</div>
+
+    
+    <div class="content index py4">
+        
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle" itemprop="name headline">
+        GNL - get_next_line 42
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">Hector Fernandes</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2021-08-27T17:38:59.000Z" itemprop="datePublished">sex, 27 ago 2021</time>
+        
+        (Updated: <time datetime="2022-06-09T14:31:50.804Z" itemprop="dateModified">qui, 09 jun 2022</time>)
+        
+      
+    </div>
+
+
+      
+
+      
+    <div class="article-tag">
+        <i class="fas fa-tag"></i>
+        <a class="tag-link-link" href="/tags/42SP/" rel="tag">42SP</a>, <a class="tag-link-link" href="/tags/C/" rel="tag">C</a>, <a class="tag-link-link" href="/tags/c/" rel="tag">c</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content" itemprop="articleBody">
+    <h1 id="Descricao"><a href="#Descricao" class="headerlink" title="Descrição"></a>Descrição</h1><p>O get_next_line é um programa que retornar uma linha do arquivo lido.</p>
+<h2 id="O-que-sei-ate-agora"><a href="#O-que-sei-ate-agora" class="headerlink" title="O que sei até agora:"></a>O que sei até agora:</h2><h4 id="File-Descriptor-FD"><a href="#File-Descriptor-FD" class="headerlink" title="- File Descriptor (FD)"></a>- File Descriptor (FD)</h4><p>O file descriptor segundo o <a target="_blank" rel="noopener" href="https://pt.wikipedia.org/wiki/Descritor_de_arquivo">wikipedia</a> é um indicador abstrato para indicar um arquivo.</p>
+<p>No GNL iremos usar a função <code>read()</code> da biblioteca <code>&lt;unistd.h&gt;</code>. </p>
+<h5 id="read"><a href="#read" class="headerlink" title="read()"></a>read()</h5><p> protótipo:</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">ssize_t</span>	<span class="title">read</span><span class="params">(<span class="keyword">int</span> fd, <span class="keyword">void</span> *buf, <span class="keyword">size_t</span> count)</span></span>;</span><br></pre></td></tr></table></figure>
+
+
+
+<h5 id="Anotacoes-gerais"><a href="#Anotacoes-gerais" class="headerlink" title="Anotações gerais."></a>Anotações gerais.</h5><p>[22/08/21]</p>
+<p>O valor de <code>fd</code> é recebido na <code>main.c</code> através do função <code>open()</code>, seria algo do tipo: </p>
+<p><code>fd = open(&quot;arquivo&quot;, O_RDONLY) </code> e o valor recebido de <code>fd</code> seria passado para o <code>get_next_line</code></p>
+<p>minhas principais dúvidas são:</p>
+<ul>
+<li><input checked="" disabled="" type="checkbox"> Como saber que é a próxima linha? [check: 24/08]</li>
+<li><input checked="" disabled="" type="checkbox"> a variável estática é usada para pegar a próxima linha? [check: 24/08]</li>
+</ul>
+<p>[24/08/21]</p>
+<p>Descobri que a func <code>read()</code> volta a ler de onde o carrinho de leitura parou, essa era uma das preocupações que eu tive, de como eu controlaria para saber qual é a próxima linha. </p>
+<p>Criei a função que lê a primeira parte e salva no buffer.</p>
+<p>*<em>Não funcionou como deveria</em></p>
+<p>[27/08/21]</p>
+<p>Como tinha alguns trabalhos que precisavam ser entregues na faculdade, não consegui retornar antes para o GNL.</p>
+<hr>
+<details>
+    <summary>Mostrar código</summary>
+    <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">while</span> (!ft_strchr(save, <span class="string">&#x27;\n&#x27;</span>))</span><br><span class="line">    &#123;</span><br><span class="line">        r = read(fd, buffer, BUFFER_SIZE);</span><br><span class="line">        aux = save;</span><br><span class="line">        save = ft_strjoin(save, buffer);</span><br><span class="line">        <span class="built_in">free</span>(aux);</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+</details>
+
+<p>O protótipo funcionou, a ideia que eu tive é ir guardando o buffer até achar o <code>&#39;\n&#39;</code>assim que ele acha o <code>&#39;\n&#39;</code> na string static que eu guardo tudo que o buffer recebe, o while termina e eu retorno até o <code>&#39;\n&#39;</code> e  em seguida guardo o restante na própria string static.</p>
+<p>[06/09/21]</p>
+<p>Aparentemente tudo funcionando, exceto pelo <code>TIME OUT</code> dado nos testes em que se tem um arquivo sem linha e muito grandes, mas vou tentar resolver assim que der.</p>
+<hr>
+<h5 id="Linha-geral"><a href="#Linha-geral" class="headerlink" title="Linha geral:"></a>Linha geral:</h5><p>A função <code>read_file</code> é autodescritiva, vou receber como parâmetro o fd do arquivo e a variavel estática. Nela eu crio um buffer com o tamnaho do <code>BUFFER_SIZE</code> e uso a função <code>read()</code> pra ler o arquivo até encontrar o final dele - que seria retornado 0 - ou até encontrar uma linha (<code>\n</code>) , caso ocorra algum erro, o laço de repetição é parado, libero a variavel buffer que tinha mallocado e retorno NULL, caso contrário, uso a função <code>ft_strjoin()</code> para juntar o conteúdo de backup com o buffer.</p>
+<details>
+    <summary>Mostrar código</summary>
+    <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">char</span>	*<span class="title">read_file</span><span class="params">(<span class="keyword">int</span> fd, <span class="keyword">char</span> *backup)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">char</span>	*buffer;</span><br><span class="line">        <span class="keyword">int</span>		read_bytes;</span><br><span class="line">        buffer = <span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(<span class="keyword">char</span>) * (BUFFER_SIZE + <span class="number">1</span>));</span><br><span class="line">        <span class="keyword">if</span> (!buffer)</span><br><span class="line">            <span class="keyword">return</span> (<span class="literal">NULL</span>);</span><br><span class="line">        read_bytes = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">while</span> (read_bytes &gt; <span class="number">0</span> &amp;&amp; !ft_strchr(backup, <span class="string">&#x27;\n&#x27;</span>))</span><br><span class="line">        &#123;</span><br><span class="line">            read_bytes = read(fd, buffer, BUFFER_SIZE);</span><br><span class="line">            <span class="keyword">if</span> (read_bytes &lt; <span class="number">0</span>)</span><br><span class="line">                <span class="keyword">break</span> ;</span><br><span class="line">            buffer[read_bytes] = <span class="string">&#x27;\0&#x27;</span>;</span><br><span class="line">            backup = ft_strjoin(backup, buffer);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">free</span>(buffer);</span><br><span class="line">        <span class="keyword">if</span> (read_bytes &lt; <span class="number">0</span>)</span><br><span class="line">            <span class="keyword">return</span> (<span class="literal">NULL</span>);</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            <span class="keyword">return</span> (backup);</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+</details>
+
+<p>A função <code>get_line()</code> faz o que o nome já diz, ela pega a linha. Como parâmetro ainda vamos usar o backup, faço uma verificação se a backup não está com o primeiro caracter como null byte (<code>&#39;\0&#39;</code>), percorro ela inteira até achar uma (<code>&#39;\n&#39;</code>) ou o final dela, crio com o malloc uma string com o tamanho que li + 2 espaços, pra caso haja um <code>\n</code> , eu coloque ele e logo em seguida o (<code>\0</code>)  e retorno essa linha.</p>
+<details>
+    <summary>Mostrar código</summary>
+    <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">   <span class="function"><span class="keyword">static</span> <span class="keyword">char</span>	*<span class="title">get_line</span><span class="params">(<span class="keyword">char</span>	*backup)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">char</span>	*line;</span><br><span class="line">    <span class="keyword">size_t</span>	size;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (!*backup)</span><br><span class="line">        <span class="keyword">return</span> (<span class="literal">NULL</span>);</span><br><span class="line">    size = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span> (backup[size] &amp;&amp; backup[size] != <span class="string">&#x27;\n&#x27;</span>)</span><br><span class="line">        size++;</span><br><span class="line">    line = (<span class="keyword">char</span> *)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(<span class="keyword">char</span>) * (size + <span class="number">2</span>));</span><br><span class="line">    <span class="keyword">if</span> (!line)</span><br><span class="line">        <span class="keyword">return</span> (<span class="literal">NULL</span>);</span><br><span class="line">    ft_strlcpy(line, backup, size + <span class="number">1</span>);</span><br><span class="line">    <span class="keyword">if</span> (backup[size] == <span class="string">&#x27;\n&#x27;</span>)</span><br><span class="line">        line[size++] = <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line">    line[size] = <span class="string">&#x27;\0&#x27;</span>;</span><br><span class="line">    <span class="keyword">return</span> (line);</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+</details>
+
+
+<p>A última função é a <code>remove_read_line()</code> que remove a linha lida. Ela recebe como parâmetro a <code>static</code> , nela eu procuro até a quebra de linha <code>\n</code> ou até chegar no final, se chega no final, dou um free na variável e retorno <code>NULL</code> , senão, eu malloco uma nova variavel com o (tamanho total de backup, menos o tamanho da linha), copio o restante de backup pra uma nova variável e dou free nela.</p>
+<details>
+    <summary>Mostrar código</summary>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">    <span class="function"><span class="keyword">static</span> <span class="keyword">char</span>	*<span class="title">remove_read_line</span><span class="params">(<span class="keyword">char</span> *backup)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span>		i;</span><br><span class="line">    <span class="keyword">int</span>		j;</span><br><span class="line">    <span class="keyword">char</span>	*new_backup;</span><br><span class="line"></span><br><span class="line">    i = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span> (backup[i] &amp;&amp; backup[i] != <span class="string">&#x27;\n&#x27;</span>)</span><br><span class="line">        i++;</span><br><span class="line">    <span class="keyword">if</span> (!backup[i])</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">free</span>(backup);</span><br><span class="line">        <span class="keyword">return</span> (<span class="literal">NULL</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    new_backup = (<span class="keyword">char</span> *)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(<span class="keyword">char</span>) * (ft_strlen(backup) - i + <span class="number">1</span>));</span><br><span class="line">    <span class="keyword">if</span> (!new_backup)</span><br><span class="line">        <span class="keyword">return</span> (<span class="literal">NULL</span>);</span><br><span class="line">    i++;</span><br><span class="line">    j = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span> (backup[i])</span><br><span class="line">        new_backup[j++] = backup[i++];</span><br><span class="line">    new_backup[j] = <span class="string">&#x27;\0&#x27;</span>;</span><br><span class="line">    <span class="built_in">free</span>(backup);</span><br><span class="line">    <span class="keyword">return</span> (new_backup);</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+</details>
+
+
+
+<p><a href="https://hector.dev.br/">Inicio</a></p>
+
+  </div>
+</article>
+
+    <div class="blog-post-comments">
+        <div id="disqus_thread">
+            <noscript>Por favor, ative o JavaScript para visualizar o conteúdo.</noscript>
+        </div>
+    </div>
+
+
+
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/">Início</a></li>
+         
+          <li><a href="/archives/">Artigos</a></li>
+         
+          <li><a target="_blank" rel="noopener" href="https://github.com/devhector">Projetos</a></li>
+         
+          <li><a href="/search/">Buscar</a></li>
+        
+      </ul>
+    </div>
+
+    <div id="toc-footer" style="display: none">
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Descricao"><span class="toc-number">1.</span> <span class="toc-text">Descrição</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#O-que-sei-ate-agora"><span class="toc-number">1.1.</span> <span class="toc-text">O que sei até agora:</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#File-Descriptor-FD"><span class="toc-number">1.1.0.1.</span> <span class="toc-text">- File Descriptor (FD)</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#read"><span class="toc-number">1.1.0.1.1.</span> <span class="toc-text">read()</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Anotacoes-gerais"><span class="toc-number">1.1.0.1.2.</span> <span class="toc-text">Anotações gerais.</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Linha-geral"><span class="toc-number">1.1.0.1.3.</span> <span class="toc-text">Linha geral:</span></a></li></ol></li></ol></li></ol></li></ol></li></ol>
+    </div>
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://hector.dev.br/2021/08/27/GNL-get-next-line-42/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://hector.dev.br/2021/08/27/GNL-get-next-line-42/&text=GNL - get_next_line 42"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://hector.dev.br/2021/08/27/GNL-get-next-line-42/&title=GNL - get_next_line 42"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://hector.dev.br/2021/08/27/GNL-get-next-line-42/&is_video=false&description=GNL - get_next_line 42"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=GNL - get_next_line 42&body=Check out this article: https://hector.dev.br/2021/08/27/GNL-get-next-line-42/"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://hector.dev.br/2021/08/27/GNL-get-next-line-42/&title=GNL - get_next_line 42"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://hector.dev.br/2021/08/27/GNL-get-next-line-42/&title=GNL - get_next_line 42"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://hector.dev.br/2021/08/27/GNL-get-next-line-42/&title=GNL - get_next_line 42"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://hector.dev.br/2021/08/27/GNL-get-next-line-42/&title=GNL - get_next_line 42"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://hector.dev.br/2021/08/27/GNL-get-next-line-42/&name=GNL - get_next_line 42&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://hector.dev.br/2021/08/27/GNL-get-next-line-42/&t=GNL - get_next_line 42"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fas fa-bars fa-lg" aria-hidden="true"></i> Menu</a>
+        <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fas fa-list fa-lg" aria-hidden="true"></i> TOC</a>
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fas fa-share-alt fa-lg" aria-hidden="true"></i> Compartilhar</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy;
+    
+    
+    2021-2026
+    Hector Fernandes
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+         
+          <li><a href="/">Início</a></li>
+         
+          <li><a href="/archives/">Artigos</a></li>
+         
+          <li><a target="_blank" rel="noopener" href="https://github.com/devhector">Projetos</a></li>
+         
+          <li><a href="/search/">Buscar</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+    </div>
+    <!-- styles -->
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+
+<link rel="stylesheet" href="/lib/justified-gallery/css/justifiedGallery.min.css">
+
+
+    <!-- jquery -->
+
+<script src="/lib/jquery/jquery.min.js"></script>
+
+
+<script src="/lib/justified-gallery/js/jquery.justifiedGallery.min.js"></script>
+
+<!-- clipboard -->
+
+  
+<script src="/lib/clipboard/clipboard.min.js"></script>
+
+  <script type="text/javascript">
+  $(function() {
+    // copy-btn HTML
+    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"Copy to clipboard!\">";
+    btn += '<i class="far fa-clone"></i>';
+    btn += '</span>'; 
+    // mount it!
+    $(".highlight table").before(btn);
+    var clip = new ClipboardJS('.btn-copy', {
+      text: function(trigger) {
+        return Array.from(trigger.nextElementSibling.querySelectorAll('.code')).reduce((str,it)=>str+it.innerText+'\n','')
+      }
+    });
+    clip.on('success', function(e) {
+      e.trigger.setAttribute('aria-label', "Copied!");
+      e.clearSelection();
+    })
+  })
+  </script>
+
+
+<script src="/js/main.js"></script>
+
+<!-- search -->
+
+<!-- Google Analytics -->
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-W8HYZMRDRX"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-W8HYZMRDRX');
+    </script>
+
+<!-- Baidu Analytics -->
+
+<!-- Cloudflare Analytics -->
+
+  <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "2a92fab1f69f4409b7c2ef8e4f2ee985"}'></script>
+
+<!-- Umami Analytics -->
+
+<!-- Disqus Comments -->
+
+    <script type="text/javascript">
+        var disqus_shortname = 'devhector';
+
+        (function(){
+            var dsq = document.createElement('script');
+            dsq.type = 'text/javascript';
+            dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        }());
+    </script>
+
+
+</body>
+</html>
